@@ -4,19 +4,29 @@ $(document).ready(function () {
   var wins = 1
   var loses = 1
 
+  var targetNumber = (Math.round(Math.random() * 120) + 19)
 
-  
+  $("#number-to-guess").text(targetNumber);
 
-    var targetNumber = (Math.round(Math.random() * 120) + 19)  
-    
+  var valueGem1 = Math.floor((Math.random() * 12) + 1);
+  var valueGem2 = Math.floor((Math.random() * 12) + 1);
+  var valueGem3 = Math.floor((Math.random() * 12) + 1);
+  var valueGem4 = Math.floor((Math.random() * 12) + 1);
+
+  console.log(valueGem1, valueGem2, valueGem3, valueGem4)
+
+  function reset() {
+    targetNumber = (Math.floor(Math.random() * 120) + 19);
+
     $("#number-to-guess").text(targetNumber);
+    valueGem1 = Math.floor((Math.random() * 12) + 1);
+    valueGem2 = Math.floor((Math.random() * 12) + 1);
+    valueGem3 = Math.floor((Math.random() * 12) + 1);
+    valueGem4 = Math.floor((Math.random() * 12) + 1);
+    console.log(targetNumber);
+    $('#new-score').text(counter);
 
-    var valueGem1 = Math.floor((Math.random() * 12) + 1);
-    var valueGem2 = Math.floor((Math.random() * 12) + 1);
-    var valueGem3 = Math.floor((Math.random() * 12) + 1);
-    var valueGem4 = Math.floor((Math.random() * 12) + 1);
-
-    console.log(valueGem1, valueGem2, valueGem3, valueGem4)
+  }
 
 
 
@@ -27,16 +37,16 @@ $(document).ready(function () {
 
       alert("You win!");
       $("#wins").text(wins++);
-     // $(targetNumber).text.reset();
-      
+      counter = 0;
+      reset()
     }
 
     else if (counter > targetNumber) {
 
-
       alert("You lose!!");
       $("#loses").text(loses++);
-      //$(targetNumber).text.reset();
+      counter = 0;
+      reset()
     }
 
 
@@ -50,15 +60,16 @@ $(document).ready(function () {
 
       alert("You win!");
       $("#wins").text(wins++)
-      
-      
+      counter = 0;
+      reset()
     }
 
     else if (counter > targetNumber) {
 
-
       alert("You lose!!");
       $("#loses").text(loses++)
+      counter = 0;
+      reset()
     }
 
   })
@@ -69,13 +80,16 @@ $(document).ready(function () {
 
       alert("You win!");
       $("#wins").text(wins++)
+      counter = 0;
+      reset()
     }
 
     else if (counter > targetNumber) {
 
-
       alert("You lose!!");
       $("#loses").text(loses++)
+      counter = 0;
+      reset()
     }
 
   })
@@ -86,31 +100,26 @@ $(document).ready(function () {
 
       alert("You win!");
       $("#wins").text(wins++)
+      counter = 0;
+      reset()
     }
 
     else if (counter > targetNumber) {
 
-
       alert("You lose!!");
       $("#loses").text(loses++)
+      counter = 0;
+      reset()
     }
 
   })
 
-
-
-//  #gems {
-//  display: flex;
-//  justify-content: space-between;
- // width: 300px;
-//  height: 300px;
-
-
-
-
-
 })
 
 
-
+  //  #gems {
+  //  display: flex;
+  //  justify-content: space-between;
+  // width: 300px;
+  //  height: 300px;
 
